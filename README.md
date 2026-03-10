@@ -1,4 +1,4 @@
-# ⚡ Mohanariprasath's Creative Developer Portfolio
+#  Mohanariprasath's Portfolio
 
 <div align="center">
   <img src="Assests/mj-logo.png" alt="Logo" width="100"/>
@@ -8,13 +8,9 @@
   [![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fshowroom-topaz.vercel.app%2F)](https://showroom-topaz.vercel.app/)
   [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/Mohanariprasath/Showroom/graphs/commit-activity)
 </div>
-
-## 🌐 Live Demo
-**[Launch Portfolio 🚀](https://showroom-topaz.vercel.app/)**
-
 ---
 
-## ✨ Features
+##  Features
 - **Dynamic 3D Interactions**: Magnetic navigation links and 3D tilt effects on project cards.
 - **Interactive Backgrounds**: Grainy noise filter overlays and a custom HTML5 canvas particle network background.
 - **Engaging UI Elements**: Custom smart cursor with hover states and dynamic typewriter hero text.
@@ -24,7 +20,7 @@
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 This portfolio is built with a focus on core web technologies for maximum performance without heavy framework overhead:
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
@@ -34,7 +30,7 @@ This portfolio is built with a focus on core web technologies for maximum perfor
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```text
 Showroom/
@@ -51,7 +47,7 @@ Showroom/
 
 ---
 
-## 🚀 Installation and Setup
+##  Installation and Setup
 
 To run this project locally on your machine:
 
@@ -76,33 +72,23 @@ To run this project locally on your machine:
 
 ---
 
-## 📸 Screenshots
+##  Screenshots
 
 <details>
-<summary><b>Click to expand screenshots</b> 🖼️</summary>
+<summary><b>Click to expand screenshots</b> </summary>
 
-### 💻 Hero Interface
+###  Hero Interface
 *(Upload a screenshot of your hero section here)*
 
-### 🚀 Deployments & Projects
+###  Deployments & Projects
 *(Upload a screenshot of your project cards here)*
 
-### 🪐 Technology Orbit
+###  Technology Orbit
 *(Upload a screenshot of your animated skills orbit here)*
 
 </details>
 
 ---
 
-## 📫 Contact Information
-Systems are online! Feel free to reach out to me for collaborations, projects, or just to say hello.
-
-- 📧 **Email**: [mohanariprasath@gmail.com](mailto:mohanariprasath@gmail.com)
-- 💼 **LinkedIn**: [Mohanariprasath J](https://www.linkedin.com/in/mohanariprasath-j-8252bb291/)
-- 🐙 **GitHub**: [@Mohanariprasath](https://github.com/Mohanariprasath)
-- 🐦 **Twitter / X**: [@mohanaripr51700](https://x.com/mohanaripr51700)
-
----
-
-## 📄 License
+##  License
 This project is open-source and available under the standard **MIT License**.
