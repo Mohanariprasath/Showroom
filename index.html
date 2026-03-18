@@ -606,6 +606,527 @@
             transition-delay: 0.3s;
         }
 
+        /* Competitive Programming Section */
+        .cp-section-header {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .cp-section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .cp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .cp-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 24px;
+            padding: 2.5rem 2rem 2rem;
+            backdrop-filter: blur(16px);
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+            overflow: hidden;
+        }
+
+        .cp-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            border-radius: 24px 24px 0 0;
+        }
+
+        .cp-card.leetcode::before {
+            background: linear-gradient(90deg, #FFA116, #FFD700);
+        }
+
+        .cp-card.codeforces::before {
+            background: linear-gradient(90deg, #1A8FCC, #00E5FF);
+        }
+
+        .cp-card.codechef::before {
+            background: linear-gradient(90deg, #5B4638, #C8A97E);
+        }
+
+        .cp-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .cp-card.leetcode:hover {
+            border-color: rgba(255, 161, 22, 0.4);
+            box-shadow: 0 20px 60px rgba(255, 161, 22, 0.1);
+        }
+
+        .cp-card.codeforces:hover {
+            border-color: rgba(26, 143, 204, 0.4);
+            box-shadow: 0 20px 60px rgba(26, 143, 204, 0.1);
+        }
+
+        .cp-card.codechef:hover {
+            border-color: rgba(200, 169, 126, 0.4);
+            box-shadow: 0 20px 60px rgba(200, 169, 126, 0.1);
+        }
+
+        .cp-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .cp-platform {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cp-platform-icon {
+            width: 46px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .cp-platform-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 5px;
+            border-radius: 12px;
+        }
+
+        .leetcode .cp-platform-icon {
+            background: rgba(255, 161, 22, 0.12);
+            box-shadow: 0 0 14px rgba(255, 161, 22, 0.18);
+        }
+
+        .codeforces .cp-platform-icon {
+            background: rgba(26, 143, 204, 0.12);
+            box-shadow: 0 0 14px rgba(26, 143, 204, 0.18);
+        }
+
+        .codechef .cp-platform-icon {
+            background: rgba(91, 70, 56, 0.25);
+            box-shadow: 0 0 14px rgba(200, 169, 126, 0.18);
+        }
+
+        .cp-platform-name {
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .cp-platform-rank {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .cp-rating-badge {
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .leetcode .cp-rating-badge {
+            background: rgba(255, 161, 22, 0.15);
+            color: #FFA116;
+            border: 1px solid rgba(255, 161, 22, 0.3);
+        }
+
+        .codeforces .cp-rating-badge {
+            background: rgba(0, 229, 255, 0.1);
+            color: #03DAC6;
+            border: 1px solid rgba(0, 229, 255, 0.3);
+        }
+
+        .codechef .cp-rating-badge {
+            background: rgba(200, 169, 126, 0.15);
+            color: #C8A97E;
+            border: 1px solid rgba(200, 169, 126, 0.3);
+        }
+
+        .cp-ring-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cp-ring-wrapper {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            flex-shrink: 0;
+        }
+
+        .cp-ring-svg {
+            width: 110px;
+            height: 110px;
+            transform: rotate(-90deg);
+        }
+
+        .cp-ring-bg {
+            fill: none;
+            stroke: rgba(255, 255, 255, 0.06);
+            stroke-width: 6;
+        }
+
+        .cp-ring-progress {
+            fill: none;
+            stroke-width: 6;
+            stroke-linecap: round;
+            stroke-dasharray: 283;
+            stroke-dashoffset: 283;
+            transition: stroke-dashoffset 2s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .leetcode .cp-ring-progress {
+            stroke: url(#leetcode-gradient);
+            filter: drop-shadow(0 0 6px rgba(255, 161, 22, 0.5));
+        }
+
+        .codeforces .cp-ring-progress {
+            stroke: url(#codeforces-gradient);
+            filter: drop-shadow(0 0 6px rgba(26, 143, 204, 0.5));
+        }
+
+        .codechef .cp-ring-progress {
+            stroke: url(#codechef-gradient);
+            filter: drop-shadow(0 0 6px rgba(200, 169, 126, 0.5));
+        }
+
+        .cp-ring-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .cp-ring-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            font-family: var(--font-mono);
+            color: var(--text-main);
+            line-height: 1;
+        }
+
+        .cp-ring-text {
+            font-size: 0.6rem;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .cp-ring-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .cp-mini-stat {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cp-mini-stat-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cp-mini-stat-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .cp-mini-stat-value {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .cp-difficulty-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 0.5rem;
+        }
+
+        .cp-diff-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cp-diff-label {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            width: 55px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .cp-diff-bar-bg {
+            flex: 1;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .cp-diff-bar-fill {
+            height: 100%;
+            border-radius: 3px;
+            width: 0;
+            transition: width 1.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .cp-diff-count {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            width: 30px;
+            text-align: right;
+        }
+
+        .cp-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            margin-top: 1rem;
+        }
+
+        .cp-footer-stat {
+            text-align: center;
+        }
+
+        .cp-footer-stat-val {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .cp-footer-stat-label {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .cp-profile-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 6px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .cp-profile-link:hover {
+            color: var(--text-main);
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .cp-profile-link svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        /* Live pulse dot */
+        .live-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #00FFC8;
+            box-shadow: 0 0 6px #00FFC8;
+            animation: livePulse 1.8s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes livePulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50%       { opacity: 0.3; transform: scale(0.7); }
+        }
+
+        @keyframes cpSpin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        /* Status Bar */
+        .cp-status-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.4rem;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+
+        .cp-status-text {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+
+        .cp-refresh-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: transparent;
+            border: 1px solid rgba(0,255,200,0.25);
+            color: var(--accent-teal);
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            padding: 5px 14px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cp-refresh-btn:hover {
+            background: rgba(0,255,200,0.08);
+            border-color: var(--accent-teal);
+            box-shadow: 0 0 12px rgba(0,255,200,0.2);
+        }
+
+        .cp-refresh-btn svg {
+            width: 13px;
+            height: 13px;
+        }
+
+        /* Total Stats Bar */
+        .cp-total-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .cp-total-stat {
+            text-align: center;
+            position: relative;
+        }
+
+        .cp-total-stat:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -0.75rem;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .cp-total-num {
+            font-size: 2.5rem;
+            font-weight: 800;
+            font-family: var(--font-mono);
+            line-height: 1;
+            margin-bottom: 0.3rem;
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cp-total-label {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        @media (max-width: 768px) {
+            .cp-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cp-total-bar {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .cp-total-stat:nth-child(2)::after {
+                display: none;
+            }
+
+            .cp-total-num {
+                font-size: 1.8rem;
+            }
+
+            .cp-ring-container {
+                gap: 1.5rem;
+            }
+
+            .cp-ring-wrapper {
+                width: 90px;
+                height: 90px;
+            }
+
+            .cp-ring-svg {
+                width: 90px;
+                height: 90px;
+            }
+
+            .cp-ring-number {
+                font-size: 1.4rem;
+            }
+        }
+
         /* Footer */
         footer {
             padding: 2rem 0;
@@ -718,8 +1239,9 @@
         <div class="nav-links">
             <a href="#about" class="magnetic">01. About</a>
             <a href="#skills" class="magnetic">02. Skills</a>
-            <a href="#projects" class="magnetic">03. Projects</a>
-            <a href="#contact" class="magnetic">04. Contact</a>
+            <a href="#competitive" class="magnetic">03. CP_Stats</a>
+            <a href="#projects" class="magnetic">04. Projects</a>
+            <a href="#contact" class="magnetic">05. Contact</a>
         </div>
         <button class="menu-btn" aria-label="Toggle Menu">☰</button>
     </nav>
@@ -778,9 +1300,296 @@
             </div>
         </section>
 
+        <!-- Competitive Programming Section -->
+        <section id="competitive">
+            <!-- SVG Gradients for rings -->
+            <svg width="0" height="0" style="position:absolute">
+                <defs>
+                    <linearGradient id="leetcode-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#FFA116" />
+                        <stop offset="100%" stop-color="#FFD700" />
+                    </linearGradient>
+                    <linearGradient id="codeforces-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#1A8FCC" />
+                        <stop offset="100%" stop-color="#00E5FF" />
+                    </linearGradient>
+                    <linearGradient id="codechef-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#5B4638" />
+                        <stop offset="100%" stop-color="#C8A97E" />
+                    </linearGradient>
+                </defs>
+            </svg>
+
+            <div class="cp-section-header">
+                <h2 class="reveal"><span class="mono">03.</span> CP_METRICS</h2>
+            </div>
+            <p class="cp-section-subtitle reveal delay-1">Performance analytics across competitive programming platforms — solving problems, competing in contests, climbing ranks.</p>
+
+            <div class="cp-grid">
+
+                <!-- LeetCode Card -->
+                <div class="cp-card leetcode reveal delay-1">
+                    <div class="cp-card-header">
+                        <div class="cp-platform">
+                        <div class="cp-platform-icon"><img src="Assests/leetcode_logo.png" alt="LeetCode" /></div>
+                            <div>
+                                <div class="cp-platform-name">LeetCode</div>
+                                <div class="cp-platform-rank" id="lc-rank">Top 12.12% • Contest</div>
+                            </div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:8px">
+                            <span class="live-dot" title="Live data"></span>
+                            <div class="cp-rating-badge" id="lc-rating-badge">⚡ 1,715</div>
+                        </div>
+                    </div>
+
+                    <div class="cp-ring-container">
+                        <div class="cp-ring-wrapper">
+                            <svg class="cp-ring-svg" viewBox="0 0 100 100">
+                                <circle class="cp-ring-bg" cx="50" cy="50" r="45" />
+                                <circle class="cp-ring-progress" id="lc-ring" cx="50" cy="50" r="45" data-percent="38" />
+                            </svg>
+                            <div class="cp-ring-label">
+                                <div class="cp-ring-number" id="lc-solved" data-cp-val="147">0</div>
+                                <div class="cp-ring-text">Solved</div>
+                            </div>
+                        </div>
+                        <div class="cp-ring-stats">
+                            <div class="cp-mini-stat">
+                                <span class="cp-mini-stat-label"><span class="cp-mini-stat-dot" style="background:#00B8A3"></span>Easy</span>
+                                <span class="cp-mini-stat-value" id="lc-easy">47</span>
+                            </div>
+                            <div class="cp-mini-stat">
+                                <span class="cp-mini-stat-label"><span class="cp-mini-stat-dot" style="background:#FFC01E"></span>Medium</span>
+                                <span class="cp-mini-stat-value" id="lc-medium">92</span>
+                            </div>
+                            <div class="cp-mini-stat">
+                                <span class="cp-mini-stat-label"><span class="cp-mini-stat-dot" style="background:#EF4743"></span>Hard</span>
+                                <span class="cp-mini-stat-value" id="lc-hard">8</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cp-difficulty-bars">
+                        <div class="cp-diff-row">
+                            <span class="cp-diff-label" style="color:#00B8A3">Easy</span>
+                            <div class="cp-diff-bar-bg"><div class="cp-diff-bar-fill" id="lc-bar-easy" data-cp-width="50" style="background:#00B8A3"></div></div>
+                            <span class="cp-diff-count" id="lc-cnt-easy">47</span>
+                        </div>
+                        <div class="cp-diff-row">
+                            <span class="cp-diff-label" style="color:#FFC01E">Med</span>
+                            <div class="cp-diff-bar-bg"><div class="cp-diff-bar-fill" id="lc-bar-med" data-cp-width="45" style="background:#FFC01E"></div></div>
+                            <span class="cp-diff-count" id="lc-cnt-med">92</span>
+                        </div>
+                        <div class="cp-diff-row">
+                            <span class="cp-diff-label" style="color:#EF4743">Hard</span>
+                            <div class="cp-diff-bar-bg"><div class="cp-diff-bar-fill" id="lc-bar-hard" data-cp-width="9" style="background:#EF4743"></div></div>
+                            <span class="cp-diff-count" id="lc-cnt-hard">8</span>
+                        </div>
+                    </div>
+
+                    <div class="cp-card-footer">
+                        <div class="cp-footer-stat">
+                            <div class="cp-footer-stat-val" id="lc-contests">18</div>
+                            <div class="cp-footer-stat-label">Contests</div>
+                        </div>
+                        <div class="cp-footer-stat">
+                            <div class="cp-footer-stat-val" id="lc-streak">55</div>
+                            <div class="cp-footer-stat-label">Active Days</div>
+                        </div>
+                        <a href="https://leetcode.com/u/mohanariprasath/" target="_blank" rel="noopener noreferrer" class="cp-profile-link magnetic">
+                            View Profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Codeforces Card -->
+                <div class="cp-card codeforces reveal delay-2">
+                    <div class="cp-card-header">
+                        <div class="cp-platform">
+                        <div class="cp-platform-icon"><img src="Assests/codeforces_logo.png" alt="Codeforces" /></div>
+                            <div>
+                                <div class="cp-platform-name">Codeforces</div>
+                                <div class="cp-platform-rank" id="cf-rank">Specialist</div>
+                            </div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:8px">
+                            <span class="live-dot" title="Live data"></span>
+                            <div class="cp-rating-badge" id="cf-rating-badge">⚡ 1,482</div>
+                        </div>
+                    </div>
+
+                    <div class="cp-ring-container">
+                        <div class="cp-ring-wrapper">
+                            <svg class="cp-ring-svg" viewBox="0 0 100 100">
+                                <circle class="cp-ring-bg" cx="50" cy="50" r="45" />
+                                <circle class="cp-ring-progress" id="cf-ring" cx="50" cy="50" r="45" data-percent="55" />
+                            </svg>
+                            <div class="cp-ring-label">
+                                <div class="cp-ring-number" id="cf-solved" data-cp-val="69">0</div>
+                                <div class="cp-ring-text">Solved</div>
+                            </div>
+                        </div>
+                        <div class="cp-ring-stats">
+                            <div class="cp-mini-stat">
+                                <span class="cp-mini-stat-label"><span class="cp-mini-stat-dot" style="background:#03DAC6"></span>Rating</span>
+                                <span class="cp-mini-stat-value" id="cf-rating">1,482</span>
+                            </div>
+                            <div class="cp-mini-stat">
+                                <span class="cp-mini-stat-label"><span class="cp-mini-stat-dot" style="background:#4CC9F0"></span>Max Rating</span>
+                                <span class="cp-mini-stat-value" id="cf-max-rating">1,482</span>
+                            </div>
+                            <div class="cp-mini-stat">
+                                <span class="cp-mini-stat-label"><span class="cp-mini-stat-dot" style="background:#7B68EE"></span>Rank</span>
+                                <span class="cp-mini-stat-value" id="cf-rank-val" style="color:#03DAC6">Specialist</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cp-difficulty-bars">
+                        <div class="cp-diff-row">
+                            <span class="cp-diff-label" style="color:#03DAC6">800-1000</span>
+                            <div class="cp-diff-bar-bg"><div class="cp-diff-bar-fill" data-cp-width="80" style="background:#03DAC6"></div></div>
+                            <span class="cp-diff-count"></span>
+                        </div>
+                        <div class="cp-diff-row">
+                            <span class="cp-diff-label" style="color:#4CC9F0">1100-1400</span>
+                            <div class="cp-diff-bar-bg"><div class="cp-diff-bar-fill" data-cp-width="55" style="background:#4CC9F0"></div></div>
+                            <span class="cp-diff-count"></span>
+                        </div>
+                        <div class="cp-diff-row">
+                            <span class="cp-diff-label" style="color:#7B68EE">1500+</span>
+                            <div class="cp-diff-bar-bg"><div class="cp-diff-bar-fill" data-cp-width="20" style="background:#7B68EE"></div></div>
+                            <span class="cp-diff-count"></span>
+                        </div>
+                    </div>
+
+                    <div class="cp-card-footer">
+                        <div class="cp-footer-stat">
+                            <div class="cp-footer-stat-val" id="cf-contests">14</div>
+                            <div class="cp-footer-stat-label">Contests</div>
+                        </div>
+                        <div class="cp-footer-stat">
+                            <div class="cp-footer-stat-val" id="cf-problems">69</div>
+                            <div class="cp-footer-stat-label">Problems</div>
+                        </div>
+                        <a href="https://codeforces.com/profile/mohanariprasath" target="_blank" rel="noopener noreferrer" class="cp-profile-link magnetic">
+                            View Profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CodeChef Card -->
+                <div class="cp-card codechef reveal delay-3">
+                    <div class="cp-card-header">
+                        <div class="cp-platform">
+                        <div class="cp-platform-icon"><img src="Assests/codechef_logo.png" alt="CodeChef" /></div>
+                            <div>
+                                <div class="cp-platform-name">CodeChef</div>
+                                <div class="cp-platform-rank" id="cc-rank">3 Badges Earned</div>
+                            </div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:8px">
+                            <span class="live-dot" title="Live data"></span>
+                            <div class="cp-rating-badge" id="cc-rating-badge">⚡ 1,391</div>
+                        </div>
+                    </div>
+
+                    <div class="cp-ring-container">
+                        <div class="cp-ring-wrapper">
+                            <svg class="cp-ring-svg" viewBox="0 0 100 100">
+                                <circle class="cp-ring-bg" cx="50" cy="50" r="45" />
+                                <circle class="cp-ring-progress" id="cc-ring" cx="50" cy="50" r="45" data-percent="65" />
+                            </svg>
+                            <div class="cp-ring-label">
+                                <div class="cp-ring-number" id="cc-solved" data-cp-val="227">0</div>
+                                <div class="cp-ring-text">Solved</div>
+                            </div>
+                        </div>
+                        <div class="cp-ring-stats">
+                            <div class="cp-mini-stat">
+                                <span class="cp-mini-stat-label"><span class="cp-mini-stat-dot" style="background:#C8A97E"></span>Rating</span>
+                                <span class="cp-mini-stat-value" id="cc-rating">1,391</span>
+                            </div>
+                            <div class="cp-mini-stat">
+                                <span class="cp-mini-stat-label"><span class="cp-mini-stat-dot" style="background:#DAA520"></span>Global Rank</span>
+                                <span class="cp-mini-stat-value" id="cc-global-rank">#47,370</span>
+                            </div>
+                            <div class="cp-mini-stat">
+                                <span class="cp-mini-stat-label"><span class="cp-mini-stat-dot" style="background:#CD7F32"></span>India Rank</span>
+                                <span class="cp-mini-stat-value" id="cc-india-rank">#44,184</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cp-difficulty-bars">
+                        <div class="cp-diff-row">
+                            <span class="cp-diff-label" style="color:#C8A97E">Contests</span>
+                            <div class="cp-diff-bar-bg"><div class="cp-diff-bar-fill" id="cc-bar-contests" data-cp-width="75" style="background:linear-gradient(90deg,#5B4638,#C8A97E)"></div></div>
+                            <span class="cp-diff-count" id="cc-cnt-contests">40</span>
+                        </div>
+                        <div class="cp-diff-row">
+                            <span class="cp-diff-label" style="color:#DAA520">Silver</span>
+                            <div class="cp-diff-bar-bg"><div class="cp-diff-bar-fill" data-cp-width="60" style="background:#DAA520"></div></div>
+                            <span class="cp-diff-count">25 ✓</span>
+                        </div>
+                        <div class="cp-diff-row">
+                            <span class="cp-diff-label" style="color:#CD7F32">Bronze</span>
+                            <div class="cp-diff-bar-bg"><div class="cp-diff-bar-fill" data-cp-width="40" style="background:#CD7F32"></div></div>
+                            <span class="cp-diff-count">50 ✓</span>
+                        </div>
+                    </div>
+
+                    <div class="cp-card-footer">
+                        <div class="cp-footer-stat">
+                            <div class="cp-footer-stat-val" id="cc-contests">40</div>
+                            <div class="cp-footer-stat-label">Contests</div>
+                        </div>
+                        <div class="cp-footer-stat">
+                            <div class="cp-footer-stat-val" id="cc-problems">227</div>
+                            <div class="cp-footer-stat-label">Problems</div>
+                        </div>
+                        <a href="https://www.codechef.com/users/mohancse31" target="_blank" rel="noopener noreferrer" class="cp-profile-link magnetic">
+                            View Profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Aggregate Stats Bar -->
+            <div class="cp-total-bar reveal delay-2">
+                <div class="cp-total-stat">
+                    <div class="cp-total-num" id="total-solved" data-cp-val="443">0</div>
+                    <div class="cp-total-label">Total Solved</div>
+                </div>
+                <div class="cp-total-stat">
+                    <div class="cp-total-num" id="total-contests" data-cp-val="72">0</div>
+                    <div class="cp-total-label">Contests</div>
+                </div>
+                <div class="cp-total-stat">
+                    <div class="cp-total-num" data-cp-val="3">0</div>
+                    <div class="cp-total-label">Platforms</div>
+                </div>
+                <div class="cp-total-stat">
+                    <div class="cp-total-num" id="total-peak" data-cp-val="1715">0</div>
+                    <div class="cp-total-label">Peak Rating</div>
+                </div>
+            </div>
+
+            <!-- Status bar -->
+            <div class="cp-status-bar">
+                <span class="cp-status-text" id="cp-last-updated">Fetching live data…</span>
+                <button class="cp-refresh-btn" id="cp-refresh-btn" title="Refresh now">
+                    <svg id="cp-refresh-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                    Refresh
+                </button>
+            </div>
+        </section>
+
         <!-- Projects Section -->
         <section id="projects">
-            <h2 class="reveal"><span class="mono">03.</span> DEPLOYMENTS</h2>
+            <h2 class="reveal"><span class="mono">04.</span> DEPLOYMENTS</h2>
             <div class="project-grid">
 
                 <!-- Project 1 -->
@@ -832,7 +1641,7 @@
         <!-- Contact Section -->
         <section id="contact">
             <div class="contact-box reveal">
-                <h2><span class="mono">04.</span> TRANSMIT_SIGNAL</h2>
+                <h2><span class="mono">05.</span> TRANSMIT_SIGNAL</h2>
                 <p>Systems are online. Network connections available for new high-impact projects, collaborations, or
                     encrypted transmissions.</p>
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mohanariprasath@gmail.com" target="_blank"
@@ -1210,6 +2019,396 @@
                 cy = oCanvas.height / 2;
             });
         }
+
+        // ═══════════════════════════════════════════════════════════
+        // 8. CP TRACKER  — modular, cached, auto-polling
+        // ═══════════════════════════════════════════════════════════
+        const CPTracker = (() => {
+
+            // ── CONFIG (change usernames here) ───────────────────────
+            const CONFIG = {
+                leetcode:   'mohanariprasath',
+                codeforces: 'mohanariprasath',
+                codechef:   'mohancse31',
+                pollInterval: 30_000,   // ms between background refreshes
+                cacheTTL:     300_000,  // 5 minutes cache TTL
+                // Fallback values shown when all APIs fail
+                fallback: {
+                    lc:  { total:148, easy:47, medium:93, hard:8, contestRating:1715, topPct:12.12, contests:18, activeDays:56 },
+                    cf:  { rating:1482, maxRating:1482, rank:'Specialist', solved:69, contests:14 },
+                    cc:  { rating:1391, solved:227, globalRank:47370, countryRank:44184, contests:40 }
+                }
+            };
+
+            // ── CACHE (localStorage, per-key TTL) ────────────────────
+            const Cache = {
+                get(key) {
+                    try {
+                        const raw = localStorage.getItem('cp_' + key);
+                        if (!raw) return null;
+                        const { ts, data } = JSON.parse(raw);
+                        if (Date.now() - ts > CONFIG.cacheTTL) { localStorage.removeItem('cp_' + key); return null; }
+                        return data;
+                    } catch { return null; }
+                },
+                set(key, data) {
+                    try { localStorage.setItem('cp_' + key, JSON.stringify({ ts: Date.now(), data })); } catch {}
+                }
+            };
+
+            // ── DOM HELPERS ─────────────────────────────────────────
+            const $ = id => document.getElementById(id);
+            const setText = (id, val) => { const el = $(id); if (el && val != null) el.textContent = val; };
+            const setAttr = (id, attr, val) => { const el = $(id); if (el && val != null) el.setAttribute(attr, val); };
+
+            function updateRingNow(ringId, pct) {
+                const ring = $(ringId);
+                if (!ring) return;
+                ring.setAttribute('data-percent', pct);
+                const offset = 2 * Math.PI * 45 * (1 - pct / 100);
+                ring.style.strokeDashoffset = offset;
+            }
+
+            function updateBarNow(barId, pct) {
+                const bar = $(barId);
+                if (!bar) return;
+                bar.setAttribute('data-cp-width', pct);
+                bar.style.width = pct + '%';
+            }
+
+            function updateNumNow(id, val) {
+                const el = $(id);
+                if (!el) return;
+                el.setAttribute('data-cp-val', val);
+                el.textContent = Number(val).toLocaleString();
+            }
+
+            // ── FETCH HELPERS ───────────────────────────────────────
+            async function fetchJSON(url, timeout = 9000) {
+                const ctrl = new AbortController();
+                const tid = setTimeout(() => ctrl.abort(), timeout);
+                try {
+                    const res = await fetch(url, { signal: ctrl.signal });
+                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    return await res.json();
+                } finally { clearTimeout(tid); }
+            }
+
+            // ── PLATFORM FETCHERS ────────────────────────────────────
+
+            // ── LeetCode: try 3 different APIs in sequence ───────────
+            async function fetchLCFromAlfa() {
+                const [profile, contest] = await Promise.all([
+                    fetchJSON(`https://alfa-leetcode-api.onrender.com/${CONFIG.leetcode}`, 10000),
+                    fetchJSON(`https://alfa-leetcode-api.onrender.com/${CONFIG.leetcode}/contest`, 10000)
+                ]);
+                if (!profile || profile.errors) throw new Error('alfa-api: bad response');
+                return {
+                    total:         profile.totalSolved        ?? null,
+                    easy:          profile.easySolved         ?? null,
+                    medium:        profile.mediumSolved       ?? null,
+                    hard:          profile.hardSolved         ?? null,
+                    contestRating: Math.round(contest?.contestRating          ?? CONFIG.fallback.lc.contestRating),
+                    topPct:        contest?.contestTopPercentage               ?? CONFIG.fallback.lc.topPct,
+                    contests:      contest?.contestAttend                      ?? CONFIG.fallback.lc.contests,
+                    activeDays:    profile.totalActiveDays                     ?? CONFIG.fallback.lc.activeDays
+                };
+            }
+
+            async function fetchLCFromHeroku() {
+                // leetcode-stats-api (alternate, different response shape)
+                const d = await fetchJSON(`https://leetcode-stats-api.herokuapp.com/${CONFIG.leetcode}`, 9000);
+                if (!d || d.status === 'error') throw new Error('heroku-api: bad response');
+                return {
+                    total:         d.totalSolved,
+                    easy:          d.easySolved,
+                    medium:        d.mediumSolved,
+                    hard:          d.hardSolved,
+                    contestRating: CONFIG.fallback.lc.contestRating, // this API doesn't have contest data
+                    topPct:        CONFIG.fallback.lc.topPct,
+                    contests:      CONFIG.fallback.lc.contests,
+                    activeDays:    d.recentSubmissionList?.length ?? CONFIG.fallback.lc.activeDays
+                };
+            }
+
+            async function fetchLCFromGraphQL() {
+                // Direct LeetCode GraphQL (works from browser when on same origin or CORS allows)
+                const body = JSON.stringify({
+                    query: `query userProfile($username: String!) {
+                        matchedUser(username: $username) {
+                            submitStatsGlobal {
+                                acSubmissionNum {
+                                    difficulty count
+                                }
+                            }
+                        }
+                    }`,
+                    variables: { username: CONFIG.leetcode }
+                });
+                const resp = await fetchJSON('https://leetcode.com/graphql/', 10000);
+                // This may fail due to CORS — caught below
+                const nums = resp?.data?.matchedUser?.submitStatsGlobal?.acSubmissionNum || [];
+                const easy   = nums.find(n => n.difficulty === 'Easy')?.count   ?? null;
+                const medium = nums.find(n => n.difficulty === 'Medium')?.count ?? null;
+                const hard   = nums.find(n => n.difficulty === 'Hard')?.count   ?? null;
+                if (easy === null) throw new Error('graphql: no data');
+                return {
+                    total: easy + medium + hard,
+                    easy, medium, hard,
+                    contestRating: CONFIG.fallback.lc.contestRating,
+                    topPct:        CONFIG.fallback.lc.topPct,
+                    contests:      CONFIG.fallback.lc.contests,
+                    activeDays:    CONFIG.fallback.lc.activeDays
+                };
+            }
+
+            async function fetchLeetCode() {
+                // Return fresh cache if still valid
+                const cached = Cache.get('lc');
+                if (cached) { console.log('[LC] served from cache'); return cached; }
+
+                // Try each API source in order — stop at first success
+                const sources = [
+                    { name: 'alfa-leetcode-api', fn: fetchLCFromAlfa },
+                    { name: 'leetcode-stats-api', fn: fetchLCFromHeroku },
+                    { name: 'leetcode-graphql',   fn: fetchLCFromGraphQL }
+                ];
+
+                for (const src of sources) {
+                    try {
+                        const raw = await src.fn();
+                        // Validate that we got meaningful data (total > 0)
+                        if (!raw || !raw.total || raw.total < 1) throw new Error('empty data');
+                        // Fill any missing fields from fallback
+                        const data = {
+                            total:         raw.total         ?? CONFIG.fallback.lc.total,
+                            easy:          raw.easy          ?? CONFIG.fallback.lc.easy,
+                            medium:        raw.medium        ?? CONFIG.fallback.lc.medium,
+                            hard:          raw.hard          ?? CONFIG.fallback.lc.hard,
+                            contestRating: raw.contestRating ?? CONFIG.fallback.lc.contestRating,
+                            topPct:        raw.topPct        ?? CONFIG.fallback.lc.topPct,
+                            contests:      raw.contests      ?? CONFIG.fallback.lc.contests,
+                            activeDays:    raw.activeDays    ?? CONFIG.fallback.lc.activeDays
+                        };
+                        Cache.set('lc', data);
+                        Cache.set('lc_stale', data); // always keep a fresh stale copy
+                        console.log(`[LC] data from ${src.name}: total=${data.total}`);
+                        return data;
+                    } catch (e) {
+                        console.warn(`[CPTracker] LeetCode ${src.name} failed:`, e.message);
+                    }
+                }
+
+                // All APIs failed — use stale cache or hardcoded fallback
+                const stale = Cache.get('lc_stale');
+                if (stale) { console.warn('[LC] all APIs failed, using stale cache'); return stale; }
+                console.warn('[LC] all APIs failed, using hardcoded fallback');
+                return CONFIG.fallback.lc;
+            }
+
+            async function fetchCodeforces() {
+                const cached = Cache.get('cf');
+                if (cached) return cached;
+                try {
+                    const [info, ratingHist, submissions] = await Promise.all([
+                        fetchJSON(`https://codeforces.com/api/user.info?handles=${CONFIG.codeforces}`),
+                        fetchJSON(`https://codeforces.com/api/user.rating?handle=${CONFIG.codeforces}`),
+                        fetchJSON(`https://codeforces.com/api/user.status?handle=${CONFIG.codeforces}&from=1&count=10000`)
+                    ]);
+                    const u = info.result[0];
+                    const solved = new Set(
+                        (submissions.result || []).filter(s => s.verdict === 'OK')
+                                                  .map(s => `${s.problem.contestId}_${s.problem.index}`)
+                    ).size;
+                    const data = {
+                        rating:    u.rating    ?? CONFIG.fallback.cf.rating,
+                        maxRating: u.maxRating ?? CONFIG.fallback.cf.maxRating,
+                        rank:      u.rank      ? (u.rank[0].toUpperCase() + u.rank.slice(1)) : CONFIG.fallback.cf.rank,
+                        solved,
+                        contests:  (ratingHist.result || []).length
+                    };
+                    Cache.set('cf', data);
+                    return data;
+                } catch (e) {
+                    console.warn('[CPTracker] Codeforces fetch failed:', e.message);
+                    return Cache.get('cf_stale') ?? CONFIG.fallback.cf;
+                }
+            }
+
+            async function fetchCodeChef() {
+                const cached = Cache.get('cc');
+                if (cached) return cached;
+                try {
+                    const cc = await fetchJSON(`https://codechef-api.vercel.app/handle/${CONFIG.codechef}`);
+                    if (cc.success === false) throw new Error('API returned failure');
+                    const data = {
+                        rating:      cc.currentRating         ?? cc.rating               ?? CONFIG.fallback.cc.rating,
+                        solved:      cc.totalProblemsSolved   ?? cc.problemsSolved        ?? CONFIG.fallback.cc.solved,
+                        globalRank:  cc.globalRank            ?? CONFIG.fallback.cc.globalRank,
+                        countryRank: cc.countryRank           ?? CONFIG.fallback.cc.countryRank,
+                        contests:    cc.contestsParticipated  ?? CONFIG.fallback.cc.contests
+                    };
+                    Cache.set('cc', data);
+                    return data;
+                } catch (e) {
+                    console.warn('[CPTracker] CodeChef fetch failed:', e.message);
+                    return Cache.get('cc_stale') ?? CONFIG.fallback.cc;
+                }
+            }
+
+            // ── DOM UPDATERS ─────────────────────────────────────────
+
+            function applyLeetCode(d) {
+                const maxLC = 3900;
+                setText('lc-rating-badge', `⚡ ${d.contestRating.toLocaleString()}`);
+                setText('lc-rank',         `Top ${Number(d.topPct).toFixed(2)}% • Contest`);
+                setText('lc-easy',         d.easy);    setText('lc-cnt-easy', d.easy);
+                setText('lc-medium',       d.medium);  setText('lc-cnt-med',  d.medium);
+                setText('lc-hard',         d.hard);    setText('lc-cnt-hard', d.hard);
+                setText('lc-contests',     d.contests);
+                setText('lc-streak',       d.activeDays);
+                updateNumNow('lc-solved',  d.total);
+                updateRingNow('lc-ring',   Math.round((d.total / maxLC) * 100));
+                updateBarNow('lc-bar-easy', Math.min(Math.round((d.easy   / 932)  * 100), 100));
+                updateBarNow('lc-bar-med',  Math.min(Math.round((d.medium / 2026) * 100), 100));
+                updateBarNow('lc-bar-hard', Math.min(Math.round((d.hard   / 915)  * 100), 100));
+            }
+
+            function applyCodeforces(d) {
+                setText('cf-rating-badge', `⚡ ${d.rating.toLocaleString()}`);
+                setText('cf-rating',       d.rating.toLocaleString());
+                setText('cf-max-rating',   d.maxRating.toLocaleString());
+                setText('cf-rank',         d.rank);
+                setText('cf-rank-val',     d.rank);
+                setText('cf-contests',     d.contests);
+                setText('cf-problems',     d.solved);
+                updateNumNow('cf-solved',  d.solved);
+                updateRingNow('cf-ring',   Math.min(Math.round((d.rating / 2400) * 100), 100));
+            }
+
+            function applyCodeChef(d) {
+                setText('cc-rating-badge',  `⚡ ${d.rating.toLocaleString()}`);
+                setText('cc-rating',        d.rating.toLocaleString());
+                setText('cc-global-rank',   `#${parseInt(d.globalRank).toLocaleString()}`);
+                setText('cc-india-rank',    `#${parseInt(d.countryRank).toLocaleString()}`);
+                setText('cc-contests',      d.contests);
+                setText('cc-problems',      d.solved);
+                setText('cc-cnt-contests',  d.contests);
+                updateNumNow('cc-solved',   d.solved);
+                updateRingNow('cc-ring',    Math.min(Math.round((d.solved / 350) * 100), 100));
+                updateBarNow('cc-bar-contests', Math.min(Math.round((d.contests / 55) * 100), 100));
+            }
+
+            function applyAggregates(lc, cf, cc) {
+                const totalSolved   = lc.total   + cf.solved   + cc.solved;
+                const totalContests = lc.contests + cf.contests + cc.contests;
+                const peakRating    = Math.max(lc.contestRating, cf.maxRating, cc.rating);
+                updateNumNow('total-solved',   totalSolved);
+                updateNumNow('total-contests', totalContests);
+                updateNumNow('total-peak',     peakRating);
+            }
+
+            // ── STATUS UI ────────────────────────────────────────────
+            let spinning = false;
+            function setStatus(msg, isLoading = false) {
+                setText('cp-last-updated', msg);
+                const icon = $('cp-refresh-icon');
+                if (icon) { icon.style.animation = isLoading ? 'cpSpin 1s linear infinite' : 'none'; }
+            }
+
+            function fmtTime(d) {
+                return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            }
+
+            // ── MAIN FETCH CYCLE ─────────────────────────────────────
+            async function refresh(isAuto = false) {
+                if (spinning) return;
+                spinning = true;
+                setStatus('Fetching live data…', true);
+
+                // Invalidate cache on manual refresh
+                if (!isAuto) { ['lc','cf','cc'].forEach(k => localStorage.removeItem('cp_' + k)); }
+
+                const [lc, cf, cc] = await Promise.all([
+                    fetchLeetCode(), fetchCodeforces(), fetchCodeChef()
+                ]);
+
+                // Save stale copies so offline fallback always exists
+                Cache.set('lc_stale', lc); Cache.set('cf_stale', cf); Cache.set('cc_stale', cc);
+
+                applyLeetCode(lc);
+                applyCodeforces(cf);
+                applyCodeChef(cc);
+                applyAggregates(lc, cf, cc);
+
+                spinning = false;
+                setStatus(`⚡ Live • Last updated ${fmtTime(new Date())}`, false);
+            }
+
+            // ── SCROLL ANIMATION (one-time) ──────────────────────────
+            function initScrollAnimation() {
+                const section = $('competitive');
+                if (!section) return;
+                let fired = false;
+                new IntersectionObserver((entries) => {
+                    if (!entries[0].isIntersecting || fired) return;
+                    fired = true;
+                    section.querySelectorAll('.cp-ring-progress').forEach(ring => {
+                        const pct = parseFloat(ring.getAttribute('data-percent') || 0);
+                        setTimeout(() => {
+                            ring.style.strokeDashoffset = 2 * Math.PI * 45 * (1 - pct / 100);
+                        }, 300);
+                    });
+                    section.querySelectorAll('[data-cp-val]').forEach(el => {
+                        const target = parseInt(el.getAttribute('data-cp-val') || 0);
+                        let cur = 0, inc = target / 60;
+                        const t = setInterval(() => {
+                            cur += inc;
+                            el.textContent = (cur >= target ? (clearInterval(t), target) : Math.floor(cur)).toLocaleString();
+                        }, 2000 / 60);
+                    });
+                    section.querySelectorAll('.cp-diff-bar-fill').forEach((bar, i) => {
+                        setTimeout(() => { bar.style.width = (bar.getAttribute('data-cp-width') || 0) + '%'; }, 400 + i * 100);
+                    });
+                }, { threshold: 0.1 }).observe(section);
+            }
+
+            // ── INIT ─────────────────────────────────────────────────
+            function init() {
+                // Wire refresh button
+                const btn = $('cp-refresh-btn');
+                if (btn) btn.addEventListener('click', () => refresh(false));
+
+                // Initial load
+                refresh(true);
+
+                // Auto-poll every 30s
+                setInterval(() => refresh(true), CONFIG.pollInterval);
+
+                // Scroll animations
+                initScrollAnimation();
+            }
+
+            return { init };
+        })();
+
+        // Self-heal: clear stale LC cache if it holds an outdated total
+        (function() {
+            try {
+                ['cp_lc', 'cp_lc_stale'].forEach(key => {
+                    const raw = localStorage.getItem(key);
+                    if (!raw) return;
+                    const { data } = JSON.parse(raw);
+                    // Wipe any cache where total is clearly outdated
+                    if (data && data.total < 148) {
+                        localStorage.removeItem(key);
+                        console.log(`[CPTracker] Cleared outdated cache: ${key} had total=${data.total}`);
+                    }
+                });
+            } catch(_) {}
+        })();
+
+        CPTracker.init();
     </script>
 </body>
 
